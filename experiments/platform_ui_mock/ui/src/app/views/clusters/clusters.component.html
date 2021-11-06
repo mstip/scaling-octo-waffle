@@ -1,0 +1,33 @@
+<app-view [breadcrumbs]="[{link: '', name: 'Clusters'}]">
+  <app-content-card title="Clusters">
+    <div class="row mb-3">
+      <div class="col-2">
+        <app-button link="/clusters/details" color="outline-primary">Create New Cluster</app-button>
+      </div>
+    </div>
+    <app-table [headings]="['Health', 'Name','Is Productive', 'Tags', 'Projects', 'Provider', '']">
+      <tr>
+        <td><i class="bi bi-check-lg text-success"></i></td>
+        <td>Demo 42</td>
+        <td><i class="bi bi-check-lg"></i></td>
+        <td>Tag1 | Tag2 | Tag3</td>
+        <td>Demo Project - Main - 21.5.12-1<br>Showcase Project - Testing - 21.2.1-1</td>
+        <td>Digtial Ocean</td>
+        <td>
+          <app-table-button link="/clusters/details">Details</app-table-button>
+        </td>
+      </tr>
+      <tr>
+        <td><i class="bi bi-exclamation-triangle text-warning"></i></td>
+        <td>local dev cluster</td>
+        <td><i class="bi bi-x-lg"></i></td>
+        <td>Marc | Dev | Local</td>
+        <td>Showcase Project - Testing - 21.2.1-1</td>
+        <td>Custom / Local</td>
+        <td>
+          <app-table-button link="/clusters/details">Details</app-table-button>
+        </td>
+      </tr>
+    </app-table>
+  </app-content-card>
+</app-view>

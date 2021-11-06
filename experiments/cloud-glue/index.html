@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudGlue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>CloudGlue</h1>
+    <hr>
+    <div class="app">
+        <div>
+            <label for="doToken">DO Token</label>
+            <input type="text" id="doToken">
+        </div>
+        <hr>
+        <button type="button" id="listAllDoApps">List All DO Apps</button>
+        <button type="button" id="cloneAppToggle">CloneApp</button>
+        <div class="cloneAppArea" style="display: none;">
+            <hr>
+            <label for="cloneAppId">ID</label>
+            <input type="text" id="cloneAppId">
+            <label for="cloneAppName">Name</label>
+            <input type="text" id="cloneAppName" disabled>
+            <label for="cloneAppBranch">Branch</label>
+            <input type="text" id="cloneAppBranch" disabled>
+            <label for="cloneAppDomain">Domain</label>
+            <input type="text" id="cloneAppDomain" disabled>
+            <button type="button" id="cloneApp" disabled>Create Clone</button>
+        </div>
+        <hr>
+        <pre id="output">loading ....</pre>
+    </div>
+    <script type="module" src="src/main.mjs"></script>
+</body>
+
+</html>

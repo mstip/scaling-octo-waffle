@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Cluster Detail</title>
+    <style>
+        hr {
+            margin: 0;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Platform</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Monitor
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Projects</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="#">Cluster</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Settings</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Cluster</a></li>
+                    <li class="breadcrumb-item"><a href="#">Details</a></li>
+                    <li class="breadcrumb-item active">Demo 42</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container ">
+        <div class="row mt-3">
+            <div class="col">
+                <div class="card ">
+                    <div class="card-header text-white bg-dark">Details</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="col-form-label" for="inputDefault">Name</label>
+                                    <input type="text" class="form-control" placeholder="Name" id="inputDefault"
+                                        value="Demo 42">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check mt-5">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Is Productive
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleTextarea" class="form-label mt-4">Description</label>
+                            <textarea class="form-control" id="exampleTextarea"
+                                rows="3">This is the demo cluster to show of the plattform features.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="inputDefault2">Tags</label>
+                            <input type="text" class="form-control" placeholder="Tags" id="inputDefault2"
+                                value="Tag1 | Tag2 | Tag3">
+                        </div>
+
+                        <button type="button" class="btn btn-primary mt-3">Save</button>
+                        <button type="button" class="btn btn-outline-primary mt-3">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <div class="card ">
+                    <div class="card-header text-white bg-dark">Health</div>
+                    <div class="card-body">
+                        <div class="alert alert-success" role="alert">
+                            <i class="bi-check-lg"></i> Everything ok - Cluster Healthy
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nodes</th>
+                                    <th scope="col">Pods</th>
+                                    <th scope="col">Memory Usage</th>
+                                    <th scope="col">Disk free (PVC)</th>
+                                    <th scope="col">Last Check</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="bi bi-check-lg text-success"></i> 3 / 3</td>
+                                    <td><i class="bi bi-exclamation-triangle-fill text-warning"></i> 18 Running / 3
+                                        Failed</td>
+                                    <td><i class="bi bi-check-lg text-success"></i> 8GB Used / 24 GB Total</td>
+                                    <td><i class="bi bi-x-circle-fill text-danger"></i> 30GB Used / 30 GB Total</td>
+                                    <td><i class="bi bi-check-lg text-success"></i> 1 Min ago</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <div class="card ">
+                    <div class="card-header text-white bg-dark">Provider</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleSelect1" class="form-label mt-4">Type</label>
+                            <select class="form-select" id="exampleSelect1">
+                                <option>Digtial Ocean</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleSelect21" class="form-label mt-4">Kubernetes Version</label>
+                            <select class="form-select" id="exampleSelect21">
+                                <option>1.20</option>
+                                <option>1.19</option>
+                                <option>1.18</option>
+                                <option>1.17</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="droplet" class="form-label mt-4">Machine Type</label>
+                                    <select class="form-select" id="droplet">
+                                        <option>Basic</option>
+                                        <option>CPU Optimized</option>
+                                        <option>General Purpose</option>
+                                        <option>Memory Optimized</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="droplet" class="form-label mt-4">Node Type</label>
+                                    <select class="form-select" id="droplet">
+                                        <option>DEV - 10$ / 1GB Ram / 1vCPU</option>
+                                        <option>DEV - 15$ / 2GB Ram / 1vCPU</option>
+                                        <option>PROD - 20$ / 2.5GB Ram / 2vCPU</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="col-form-label mt-4" for="nodecount">Node Count</label>
+                                    <input type="number" class="form-control" placeholder="Default input" id="nodecount"
+                                        value="3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <h6>Volumes / PVC</h6>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Node</th>
+                                            <th>Pod</th>
+                                            <th>Size</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Node-1</td>
+                                            <td>App1-2</td>
+                                            <td>4 GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Node-2</td>
+                                            <td>App1-mysql-12</td>
+                                            <td>14 GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Node-2</td>
+                                            <td>App3-2</td>
+                                            <td>4 GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Node-4</td>
+                                            <td>App555</td>
+                                            <td>5 GB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Node-6</td>
+                                            <td>App1-2</td>
+                                            <td>4 GB</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-3">Apply Changes</button>
+                        <button type="button" class="btn btn-outline-primary mt-3">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <div class="card ">
+                    <div class="card-header text-white bg-dark">Projects</div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Branch</th>
+                                    <th scope="col">Apps</th>
+                                    <th scope="col">Last Deployment</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Demo Project</td>
+                                    <td>Main:21.5.12-1</td>
+                                    <td>
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td>App1</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App2</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App3</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App4</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App5</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App6</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>21.5.12 16:28</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Deploy</button>
+                                            <button class="btn btn-sm btn-success">Create Release</button>
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Showcase Project</td>
+                                    <td>Testing:21.2.1-1</td>
+                                    <td>
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td>App1</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App2</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App3</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App4</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App5</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>App6</td>
+                                                    <td>21.5.3-13</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>21.5.12 16:28</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Deploy</button>
+                                            <button class="btn btn-sm btn-success">Create Release</button>
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <div class="card ">
+                    <div class="card-header text-white bg-dark">Actions</div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Backup</td>
+                                    <td>Create a full backup of all pvcs and copy it to a block storage</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Run</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Run E2E Demo Suite</td>
+                                    <td>Run the E2E Demo Suite - Warning this deletes all data</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Run</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Reset Cluster</td>
+                                    <td>Removes all Projects and data</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Run</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Clone Cluster</td>
+                                    <td>Creates an exact clone of the current cluster - this could only be done within
+                                        the same provider</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Run</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Destroy Cluster</td>
+                                    <td>Destroy the cluster and delete all data</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Run</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <div class="card ">
+                    <div class="card-header text-white bg-dark">Action Logs</div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Timestamp</th>
+                                    <th scope="col">Action</th>
+                                    <th scope="col">Success</th>
+                                    <th scope="col">User</th>
+                                    <th scope="col"></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>21-5-13 19.23</td>
+                                    <td>Backup</td>
+                                    <td><i class="bi bi-check-lg text-success"></i></td>
+                                    <td>System</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Details</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>21-5-12 12.19</td>
+                                    <td>Run E2E Demo Suite</td>
+                                    <td><i class="bi bi-x-lg text-danger"></i></td>
+                                    <td>m.stipcevic</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Details</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>21-5-10 19.23</td>
+                                    <td>Cluster created</td>
+                                    <td><i class="bi bi-check-lg text-success"></i></td>
+                                    <td>System</td>
+                                    <td>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-sm btn-primary btn-block">Details</button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

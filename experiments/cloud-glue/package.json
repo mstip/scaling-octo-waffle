@@ -1,0 +1,26 @@
+{
+  "name": "cloud-glue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstip/cloud-glue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mstip/cloud-glue/issues"
+  },
+  "homepage": "https://github.com/mstip/cloud-glue#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/eslint-parser": "^7.15.7",
+    "eslint": "^7.32.0",
+    "http-server": "^13.0.2"
+  }
+}

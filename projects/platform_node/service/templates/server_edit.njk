@@ -1,0 +1,89 @@
+{% extends "./base.njk" %}
+
+{% block body %}
+<nav aria-label="breadcrumb" class="pt-2">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/server">Server</a></li>
+        {% if isEdit %}
+        <li class="breadcrumb-item active" aria-current="page">{{name}}</li>
+        {% else %}
+        <li class="breadcrumb-item active" aria-current="page">Create new server</li>
+        {% endif %}
+    </ol>
+</nav>
+<hr>
+
+<div class="container-fluid pt-3">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    {% if isEdit %}
+                    <h5 class="card-title">Edit Server {{name}}</h5>
+                    <form action="/server/edit/{{id}}" method="POST">
+                    {% else %}
+                    <h5 class="card-title">Create new server</h5>
+                    <form action="/server/create" method="POST">
+                    {% endif %}
+                    
+                        {% if isEdit %}
+                        <div>
+                            <label class="form-label">Id</label>
+                            <input type="text" class="form-control" value="{{id}}" readonly>
+                        </div>
+                        {% endif %}
+                        <div>
+                            <label class="form-label">Name</label>
+                            <input name="name" type="text" class="form-control" value="{{name}}">
+                        </div>
+                        <div>
+                            <label class="form-label">IP</label>
+                            <input name="ip" type="text" class="form-control" value="{{ip}}">
+                        </div>
+                        <div>
+                            <label class="form-label">Domain</label>
+                            <input name="domain" type="text" class="form-control" value="{{domain}}">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3"><i class="bi bi-save"></i> {{ "Save" if isEdit else "Create"}}</button>
+                        <a class="btn btn-outline-secondary mt-3" href="/server"><i class="bi bi-x-square"></i>
+                            Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if isEdit %}
+    <div class="row pt-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Server Status</h5>
+                    <table class="table table-bordered table-sm ">
+                        <tbody>
+                            <tr>
+                                <td>Agent Status</td>
+                                {% if agentInstalled %}
+                                <td><i class="bi bi-check-square text-success"></i> Installed</td>
+                                {% else %}
+                                <td>
+                                    curl {{serviceDomain}}/api/install/{{id}}/install.sh | sudo bash
+                                </td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <td>Server Status</td>
+                                <td><i class="bi bi-check-square text-success"></i> Healthy</td>
+                            </tr>
+                            <tr>
+                                <td>Deployments</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

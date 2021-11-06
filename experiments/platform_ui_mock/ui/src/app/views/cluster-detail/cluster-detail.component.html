@@ -1,0 +1,370 @@
+<app-view [breadcrumbs]="[{link: '', name: 'Cluster'},{link: '', name: 'Detail'},{link: '', name: 'Demo 42'}]">
+  <app-content-card [title]="'Details'">
+    <div class="row">
+      <div class="col">
+        <app-text-input label="Name" placeholder="Name" value="Demo 42"></app-text-input>
+      </div>
+      <div class="col">
+        <app-checkbox label="Is Productive" [value]="true"></app-checkbox>
+      </div>
+    </div>
+    <app-textarea label="Description"
+                  value="This is the demo cluster to show of the plattform features."></app-textarea>
+    <app-text-input value="Tag1 | Tag2 | Tag3" label="Tags"></app-text-input>
+    <div class="row">
+      <div class="col-1">
+        <app-button>Save</app-button>
+      </div>
+      <div class="col-1">
+        <app-button color="outline-primary">Cancel</app-button>
+      </div>
+    </div>
+  </app-content-card>
+  <app-content-card title="Health">
+    <app-message color="success">
+      <i class="bi bi-check-lg"></i> Everything ok - Cluster Healthy
+    </app-message>
+    <app-table [headings]="['Nodes', 'Pods', 'Memory Usage' , 'Disk free (PVC)' ,'Last Check']">
+      <tr>
+        <td><i class="bi bi-check-lg text-success"></i> 3 / 3</td>
+        <td><i class="bi bi-exclamation-triangle-fill text-warning"></i> 18 Running / 3
+          Failed
+        </td>
+        <td><i class="bi bi-check-lg text-success"></i> 8GB Used / 24 GB Total</td>
+        <td><i class="bi bi-x-circle-fill text-danger"></i> 30GB Used / 30 GB Total</td>
+        <td><i class="bi bi-check-lg text-success"></i> 1 Min ago</td>
+      </tr>
+    </app-table>
+  </app-content-card>
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card ">
+        <div class="card-header text-white bg-dark">Provider</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="exampleSelect1" class="form-label mt-4">Type</label>
+            <select class="form-select" id="exampleSelect1">
+              <option>Digtial Ocean</option>
+              <option>Custom</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleSelect21" class="form-label mt-4">Kubernetes Version</label>
+            <select class="form-select" id="exampleSelect21">
+              <option>1.20</option>
+              <option>1.19</option>
+              <option>1.18</option>
+              <option>1.17</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="droplet" class="form-label mt-4">Machine Type</label>
+                <select class="form-select" id="droplet">
+                  <option>Basic</option>
+                  <option>CPU Optimized</option>
+                  <option>General Purpose</option>
+                  <option>Memory Optimized</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="droplet2" class="form-label mt-4">Node Type</label>
+                <select class="form-select" id="droplet2">
+                  <option>DEV - 10$ / 1GB Ram / 1vCPU</option>
+                  <option>DEV - 15$ / 2GB Ram / 1vCPU</option>
+                  <option>PROD - 20$ / 2.5GB Ram / 2vCPU</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label class="col-form-label mt-4" for="nodecount">Node Count</label>
+                <input type="number" class="form-control" placeholder="Default input" id="nodecount"
+                       value="3">
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <h6>Volumes / PVC</h6>
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>Node</th>
+                  <th>Pod</th>
+                  <th>Size</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Node-1</td>
+                  <td>App1-2</td>
+                  <td>4 GB</td>
+                </tr>
+                <tr>
+                  <td>Node-2</td>
+                  <td>App1-mysql-12</td>
+                  <td>14 GB</td>
+                </tr>
+                <tr>
+                  <td>Node-2</td>
+                  <td>App3-2</td>
+                  <td>4 GB</td>
+                </tr>
+                <tr>
+                  <td>Node-4</td>
+                  <td>App555</td>
+                  <td>5 GB</td>
+                </tr>
+                <tr>
+                  <td>Node-6</td>
+                  <td>App1-2</td>
+                  <td>4 GB</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary mt-3">Apply Changes</button>
+          <button type="button" class="btn btn-outline-primary mt-3">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card ">
+        <div class="card-header text-white bg-dark">Projects</div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Branch</th>
+              <th scope="col">Apps</th>
+              <th scope="col">Last Deployment</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Demo Project</td>
+              <td>Main:21.5.12-1</td>
+              <td>
+                <table class="table table-sm">
+                  <tbody>
+                  <tr>
+                    <td>App1</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App2</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App3</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App4</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App5</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App6</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>21.5.12 16:28</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Deploy</button>
+                  <button class="btn btn-sm btn-success">Create Release</button>
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Showcase Project</td>
+              <td>Testing:21.2.1-1</td>
+              <td>
+                <table class="table table-sm">
+                  <tbody>
+                  <tr>
+                    <td>App1</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App2</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App3</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App4</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App5</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  <tr>
+                    <td>App6</td>
+                    <td>21.5.3-13</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>21.5.12 16:28</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Deploy</button>
+                  <button class="btn btn-sm btn-success">Create Release</button>
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card ">
+        <div class="card-header text-white bg-dark">Actions</div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Backup</td>
+              <td>Create a full backup of all pvcs and copy it to a block storage</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Run</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Run E2E Demo Suite</td>
+              <td>Run the E2E Demo Suite - Warning this deletes all data</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Run</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Reset Cluster</td>
+              <td>Removes all Projects and data</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Run</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Clone Cluster</td>
+              <td>Creates an exact clone of the current cluster - this could only be done within
+                the same provider
+              </td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Run</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Destroy Cluster</td>
+              <td>Destroy the cluster and delete all data</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Run</button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card ">
+        <div class="card-header text-white bg-dark">Action Logs</div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Timestamp</th>
+              <th scope="col">Action</th>
+              <th scope="col">Success</th>
+              <th scope="col">User</th>
+              <th scope="col"></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>21-5-13 19.23</td>
+              <td>Backup</td>
+              <td><i class="bi bi-check-lg text-success"></i></td>
+              <td>System</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Details</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>21-5-12 12.19</td>
+              <td>Run E2E Demo Suite</td>
+              <td><i class="bi bi-x-lg text-danger"></i></td>
+              <td>m.stipcevic</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Details</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>21-5-10 19.23</td>
+              <td>Cluster created</td>
+              <td><i class="bi bi-check-lg text-success"></i></td>
+              <td>System</td>
+              <td>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-sm btn-primary btn-block">Details</button>
+                </div>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-view>

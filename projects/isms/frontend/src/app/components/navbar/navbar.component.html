@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand">ISMS</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="isAuthenticated">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" [routerLink]="'tasks'" routerLinkActive="active"><i
+                        class="bi bi-list-task"></i> Aufgaben</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" [routerLink]="'progress'" routerLinkActive="active"><i
+                        class="bi bi-graph-up"></i> Fortschritt</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" aria-current="page" [routerLink]="'structure'" routerLinkActive="active"><i
+                        class="bi bi-diagram-3"></i> Sturkturbaum</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" aria-current="page" [routerLink]="'settings'" routerLinkActive="active"><i
+                        class="bi bi-gear"></i> Einstellungen</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" aria-current="page" [routerLink]="'profile'" routerLinkActive="active"><i
+                        class="bi bi-person-circle"></i> Profil</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button class="btn btn-outline-info" style="margin-right: 1rem;" (click)="toggleHelpSidebar()"><i
+                    class="bi bi-question-circle"></i> Hilfe anzeigen
+                </button>
+                <button class="btn btn-outline-info" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Abmelden
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>

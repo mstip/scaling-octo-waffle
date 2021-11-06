@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb" class="pt-2"
+     style="padding-left:10px;--bs-breadcrumb-divider: '';  border-bottom: 1px solid #A8DADC;">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs; last as isLast">
+            <span class="text-secondary">{{breadcrumb}}</span><i class="bi bi-chevron-right" *ngIf="!isLast"></i>
+        </li>
+    </ol>
+</nav>

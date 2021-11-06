@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <div class="row mt-2">
+    <div class="col">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs"><a routerLink="{{breadcrumb.link}}"></a>{{breadcrumb.name}}</li>
+      </ol>
+    </div>
+  </div>
+</div>

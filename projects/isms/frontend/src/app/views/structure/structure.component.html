@@ -1,0 +1,28 @@
+<div class="container-fluid pt-3">
+    <div class="row">
+        <div class="col-12" [ngClass]="{'col-6': isFormVisible ,'col-12': !isFormVisible }">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <app-structure-controls [isFormVisible]="isFormVisible" [isTreeMode]="isTreeMode"
+                                                (onAdd)="add()"
+                                                (onShowTree)="showTree($event)"></app-structure-controls>
+                        <div class="row pt-2">
+                            <div class="col-12" *ngIf="isTreeMode">
+                                <app-structure-tree [assets]="assets"
+                                                    (onElement)="onElementClick($event)"></app-structure-tree>
+                            </div>
+                            <div class="col-12" *ngIf="!isTreeMode">
+                                <app-structure-table [assets]="assets"
+                                                     (onElement)="onElementClick($event)"></app-structure-table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6" *ngIf="isFormVisible">
+            <app-structure-form (close)="onClose()" [element]="selectedElement"></app-structure-form>
+        </div>
+    </div>
+</div>

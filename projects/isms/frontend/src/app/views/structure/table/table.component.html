@@ -1,0 +1,71 @@
+<table class="table table-sm table-bordered table-hover">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nummer</th>
+        <th>Name</th>
+        <th>Zweck</th>
+        <th>Standort</th>
+        <th>Elternelement</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let asset of assets;index as i" (click)="onElementClick(i)">
+        <td class="text-center"><i class="bi bi-plus"></i></td>
+        <td>{{asset.number}}</td>
+        <td>{{asset.name}}</td>
+        <td>{{asset.type}}</td>
+        <td>{{asset.location}}</td>
+        <td>{{asset.parent}}</td>
+    </tr>
+    <tr>
+        <td class="text-center"><i class="bi bi-dash-lg"></i></td>
+        <td colspan="5">
+            <table class="table table-sm table-bordered">
+                <tbody>
+                <tr>
+                    <td><strong>Asset</strong></td>
+                    <td>1111</td>
+                    <td>Lenkrad</td>
+                    <td>Autoinhalt</td>
+                    <td>Auch im Parkhaus</td>
+                    <td>Auto</td>
+                </tr>
+                <tr>
+                    <td><strong>Asset</strong></td>
+                    <td>1111</td>
+                    <td>Lenkrad</td>
+                    <td>Autoinhalt</td>
+                    <td>Auch im Parkhaus</td>
+                    <td>Auto</td>
+                </tr>
+                <tr>
+                    <td><strong>Gefahr</strong></td>
+                    <td>1111</td>
+                    <td>Feuer</td>
+                    <td></td>
+                    <td></td>
+                    <td>Auto</td>
+                </tr>
+                <tr>
+                    <td><strong>Asset</strong></td>
+                    <td>1111</td>
+                    <td>Lenkrad</td>
+                    <td>Autoinhalt</td>
+                    <td>Auch im Parkhaus</td>
+                    <td>Auto</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr *ngFor="let asset of assets;index as i" (click)="onElementClick(i)">
+        <td class="text-center"><i class="bi bi-plus"></i></td>
+        <td>{{asset.number}}</td>
+        <td>{{asset.name}}</td>
+        <td>{{asset.type}}</td>
+        <td>{{asset.location}}</td>
+        <td>{{asset.parent}}</td>
+    </tr>
+    </tbody>
+</table>

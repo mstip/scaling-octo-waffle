@@ -1,0 +1,92 @@
+<ng-container *ngIf="!isFormVisible">
+    <div class="row">
+        <div class="col-2">
+            <div class="btn-group" role="group" style="width: 100%">
+                <button type="button" class="btn btn-outline-primary"
+                        [ngClass]="{'active': !isTreeMode}" (click)="showTable()"><i
+                    class="bi bi-table"></i> Tabelle
+                </button>
+                <button type="button" class="btn btn-outline-primary"
+                        [ngClass]="{'active': isTreeMode}" (click)="showTree()"><i
+                    class="bi bi-diagram-3"></i> Baum
+                </button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group" style="width: 100%">
+                <input type="text" class="form-control" placeholder="Suche ...">
+                <button class="btn btn-outline-secondary" type="button"><i
+                    class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="btn-group" role="group" style="width: 100%">
+                <button type="button" class="btn btn-outline-primary active"><i
+                    class="bi bi-gift"></i> Assets
+                </button>
+                <button type="button" class="btn btn-outline-primary"><i
+                    class="bi bi-lightning"></i> Gefahren
+                </button>
+                <button type="button" class="btn btn-outline-primary"><i
+                    class="bi bi-lightbulb"></i> Maßnahmen
+                </button>
+            </div>
+        </div>
+
+        <div class="col-1">
+            <button class="btn btn-secondary" style="width: 100%" (click)="onAddClick()"><i
+                class="bi bi-plus"></i>
+                Hinzufügen
+            </button>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="isFormVisible">
+    <div class="row">
+        <div class="col-6">
+            <div class="btn-group" role="group" style="width: 100%">
+                <button type="button" class="btn btn-outline-primary"
+                        [ngClass]="{'active': !isTreeMode}" (click)="showTable()"><i
+                    class="bi bi-table"></i> Tabelle
+                </button>
+                <button type="button" class="btn btn-outline-primary"
+                        [ngClass]="{'active': isTreeMode}" (click)="showTree()"><i
+                    class="bi bi-diagram-3"></i> Baum
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="btn-group" role="group" style="width: 100%">
+                <button type="button" class="btn btn-outline-primary active"><i
+                    class="bi bi-gift"></i> Assets
+                </button>
+                <button type="button" class="btn btn-outline-primary"><i
+                    class="bi bi-lightning"></i> Gefahren
+                </button>
+                <button type="button" class="btn btn-outline-primary"><i
+                    class="bi bi-lightbulb"></i> Maßnahmen
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="row pt-2">
+        <div class="col-10">
+            <div class="input-group" style="width: 100%">
+                <input type="text" class="form-control" placeholder="Suche ...">
+                <button class="btn btn-outline-secondary" type="button"><i
+                    class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-secondary" style="width: 100%" (click)="onAddClick()"><i
+                class="bi bi-plus"></i>
+                Hinzufügen
+            </button>
+        </div>
+    </div>
+
+</ng-container>

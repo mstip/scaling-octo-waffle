@@ -1,0 +1,29 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node src/index.mjs",
+    "dev": "npx nodemon src/index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fastify": "^3.21.0",
+    "fastify-basic-auth": "^2.1.0",
+    "fastify-formbody": "^5.1.0",
+    "fastify-plugin": "^3.0.0",
+    "fastify-static": "^4.2.3",
+    "mysql2": "^2.3.0",
+    "nunjucks": "^3.2.3",
+    "point-of-view": "^4.15.2",
+    "sequelize": "^6.6.5"
+  },
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

@@ -1,0 +1,33 @@
+<div class="container" style="padding-top: 10rem;">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Login</h4>
+                    <div class="alert alert-danger" role="alert" *ngIf="loginError">
+                        Username oder Passwort sind nicht korrekt.
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label for="userName" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="userName" name="userName"
+                                   [(ngModel)]="userName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Passwort</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   [(ngModel)]="password">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit" (click)="login()" (submit)="login()">
+                                Einloggen
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

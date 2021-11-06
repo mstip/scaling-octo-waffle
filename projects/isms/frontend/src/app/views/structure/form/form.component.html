@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{element?.formTitle}}</h5>
+        <form>
+            <div>
+                <label class="form-label">Typ</label>
+                <select class="form-select">
+                    <option selected value="1">Asset</option>
+                    <option value="2">Gefahr</option>
+                    <option value="3">Maßnahme</option>
+                </select>
+            </div>
+            <div>
+                <label class="form-label">Nummer</label>
+                <input type="number" class="form-control" [value]="element?.number">
+            </div>
+            <div>
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" [value]="element?.name">
+            </div>
+            <div>
+                <label class="form-label">Zweck</label>
+                <input type="text" class="form-control" [value]="element?.type">
+            </div>
+            <div>
+                <label class="form-label">Standort</label>
+                <input type="text" class="form-control" [value]="element?.location">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Elternelement</label>
+                <div class="input-group" style="width: 100%">
+                    <input type="text" class="form-control" placeholder="Suche ...">
+                    <button class="btn btn-outline-secondary" type="button"><i
+                        class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+            <button class="btn btn-primary" style="margin-right: 1rem;"><i class="bi bi-save"></i> Speichern
+            </button>
+            <button (click)="onClose()" class="btn btn-outline-primary"><i class="bi bi-x"></i> Schließen
+            </button>
+        </form>
+    </div>
+</div>
