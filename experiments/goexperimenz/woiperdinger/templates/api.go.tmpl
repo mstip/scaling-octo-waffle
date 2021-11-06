@@ -1,0 +1,81 @@
+package main
+
+import (
+	"encoding/json"
+	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
+	"log"
+	"net/http"
+	"os"
+)
+{{range .Resources}}
+type {{.Name}} struct {
+{{range .Fields}}
+    {{.Name}} {{.Type}}
+{{end}}
+}
+{{end}}
+
+func respondWithError(w http.ResponseWriter, code int, message string) {
+	respondWithJSON(w, code, map[string]string{"error": message})
+}
+
+func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
+	response, _ := json.Marshal(payload)
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(code)
+	w.Write(response)
+}
+
+type WebServer struct {
+	Router *mux.Router
+}
+
+func NewWebServer() (*WebServer, error) {
+	w := &WebServer{}
+	w.routes()
+	return w, nil
+}
+
+func (ws *WebServer) routes() {
+	ws.Router = mux.NewRouter()
+{{range .Endpoints}}
+    ws.Router.Handle("/{{.Name}}", ws.handle{{.Name}}Index()).Methods("GET")
+{{end}}
+}
+{{range .Endpoints}}
+func (ws *WebServer) handle{{.Name}}Index() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		data := []{{.Resource}}{}
+		respondWithJSON(w, 200, data)
+	}
+}
+{{end}}
+
+func (ws *WebServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	ws.Router.ServeHTTP(w, r)
+}
+
+func main() {
+	err := godotenv.Load("example/.env")
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	webServer, err := NewWebServer()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	serverPort := os.Getenv("SERVER_PORT")
+	if serverPort == "" {
+		serverPort = "3000"
+	}
+
+	log.Println("{{.Name}} app started and listen to :" + serverPort)
+	err = http.ListenAndServe(":"+serverPort, webServer.Router)
+	if err != nil {
+		log.Fatal(err)
+	}
+}

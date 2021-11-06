@@ -1,0 +1,12 @@
+---
+name: todo
+resources:
+  - name: todo
+    fields:
+      - name: title
+        type: string
+      - name: done
+        type: bool
+endpoints:
+  - name: todos
+    resource: todo

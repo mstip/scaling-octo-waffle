@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enterprise Einkauszettel</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: beige;
+            color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+<h1>Enterprise Einkauszettel</h1>
+<hr>
+<form method="POST" action="/new-item">
+    <input type="text" name="newItem" placeholder="???" autofocus>
+    <button type="submit">Hinzufügen</button>
+</form>
+<ul>
+    {{range $i, $item :=.Items}}
+        <li>
+            {{if $item.Done}}
+                <button onclick="deleteItem({{$i}})">Löschen</button>
+            {{end}}
+            <input type="checkbox" onchange="toggleDone({{$i}})" {{if $item.Done}}checked{{end}}>
+            {{if $item.Done}}<s>{{end}}
+                {{$item.Name}}
+                {{if $item.Done}}</s>{{end}}
+
+        </li>
+    {{end}}
+</ul>
+<script src="/static/axios.min.js"></script>
+<script src="/static/einkaufszettel.js"></script>
+</body>
+</html>

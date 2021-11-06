@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>TODO</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+	<h1>TODO</h1>
+	<hr>
+	<form method="POST" action="/">
+		<input type="text" name="text" autofocus>
+		<button type="submit">Add</button>
+	</form>
+	<ul>
+{{range $i, $val := .Todos}}
+<li>
+	{{if $val.Done}}<s>{{end}}
+		{{$val.Text}}
+	{{if $val.Done}}</s>{{end}}
+	<input type="checkbox" {{if $val.Done}}checked{{end}} onchange="onCheck({{$i}})">
+
+	{{if $val.Done}}<button onclick="onDelete({{$i}})">Delete</button>{{end}}
+</li>
+{{end}}
+	</ul>
+	<script src="/static/todo.js"></script>
+</body>
+</html>

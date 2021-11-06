@@ -1,0 +1,61 @@
+{{define  "content"}}
+    <br>
+    <h3>Create Server</h3>
+    <form action="/create-new-server" method="POST">
+        <div class="form-group">
+            <label for="serverType">Server Type</label>
+            <select class="form-control" id="serverType" name="serverType" required>
+                <option selected disabled value="">Choose...</option>
+                <option value="1">1 VCPU - 2 GB RAM (CX11)</option>
+                <option value="3">2 VCPU - 4 GB RAM (CX21)</option>
+                <option value="5">2 VCPU - 8 GB RAM (CX31)</option>
+                <option value="7">4 VCPU - 16 GB RAM (CX41)</option>
+                <option value="9">8 VCPU - 32 GB RAM (CX51)</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Create New Server</button>
+    </form>
+    <hr class="bg-light">
+    <h3>Servers</h3>
+    <ul class="list-group">
+        {{range .Servers}}
+            <li class="list-group-item">
+                <p>{{.ID}} {{.Name}} {{.IP}} {{.ServerTypeName}}</p>
+                <form action="/delete-server/{{.ID}}" method="POST">
+                    <button class="btn btn-sm btn-danger" type="submit">Delete Server</button>
+                </form>
+                <form action="/save-and-delete-server/{{.ID}}" method="POST">
+                    <button class="btn btn-sm btn-primary" type="submit">Save and Delete Server</button>
+                </form>
+            </li>
+        {{end}}
+    </ul>
+
+    <hr class="bg-light">
+    <h3>Saves</h3>
+    <ul class="list-group">
+        {{range .Saves}}
+            <li class="list-group-item">
+                <p>{{.}}</p>
+                <form action="/load-save-in-new-server/{{.}}" method="POST">
+                    <div class="form-group">
+                        <label for="serverType">Server Type</label>
+                        <select class="form-control-sm" id="serverType" name="serverType" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option value="1">1 VCPU - 2 GB RAM (CX11)</option>
+                            <option value="3">2 VCPU - 4 GB RAM (CX21)</option>
+                            <option value="5">2 VCPU - 8 GB RAM (CX31)</option>
+                            <option value="7">4 VCPU - 16 GB RAM (CX41)</option>
+                            <option value="9">8 VCPU - 32 GB RAM (CX51)</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-sm btn-primary" type="submit">Load Save in new Server</button>
+                </form>
+                <form action="/delete-save/{{.}}" method="POST">
+                    <button class="btn btn-sm btn-danger" type="submit">Delete Save</button>
+                </form>
+            </li>
+        {{end}}
+    </ul>
+
+{{end}}
