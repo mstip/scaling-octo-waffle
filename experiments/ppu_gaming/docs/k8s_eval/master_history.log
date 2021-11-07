@@ -1,0 +1,71 @@
+    1  ls
+    2  ifconfig
+    3  cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+    4  net.bridge.bridge-nf-call-ip6tables = 1
+    5  net.bridge.bridge-nf-call-iptables = 1
+    6  EOF
+    7  sudo sysctl --system
+    8  modprobe br_netfilter
+    9  ls
+   10  ls -lah
+   11  history
+   12  apt-get update
+   13  apt-get -y install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
+   14  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   15  sudo apt-key fingerprint 0EBFCD88
+   16  sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   17     $(lsb_release -cs) \
+   18     stable"
+   19  apt-get update
+   20  vim /etc/debconf.conf 
+   21  vim /etc/apt/sources.list
+   22  apt-get update
+   23  apt-get install -y --no-install-recommends docker-ce
+   24  sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+   25  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   26  cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   27  deb https://apt.kubernetes.io/ kubernetes-xenial main
+   28  EOF
+   29  sudo apt-get update
+   30  sudo apt-get install -y kubelet kubeadm kubectl
+   31  kubeadm
+   32  kubeadm init --pod-network-cidr=10.10.0.0/8
+   33  echo "Your Kubernetes control-plane has initialized successfully!                                                                                                                                                          
+   34                                                                                                                                                                                                                       
+   35  To start using your cluster, you need to run the following as a regular user:                                                                                                                                        
+   36                                                                                                                                                                                                                       
+   37    mkdir -p $HOME/.kube                                                                                                                                                                                               
+   38    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config                                                                                                                                                           
+   39    sudo chown $(id -u):$(id -g) $HOME/.kube/config                                                                                                                                                                    
+   40                                                                                                                                                                                                                       
+   41  You should now deploy a pod network to the cluster.                                                                                                                                                                  
+   42  Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:                                                                                                                                          
+   43    https://kubernetes.io/docs/concepts/cluster-administration/addons/                                                                                                                                                 
+   44                                                                                                                                                                                                                       
+   45  Then you can join any number of worker nodes by running the following on each as root:                                                                                                                               
+   46                                                                                                                                                                                                                       
+   47  kubeadm join 78.47.227.171:6443 --token k19in5.akb2hagnn471nxi2 \                                                                                                                                                    
+   48      --discovery-token-ca-cert-hash sha256:4e4e65668d2386a7eb9c3a11afbafe8a3da9585e14058fe871b3cbdf31b9479e " > k8s.txt
+   49  cat k8s.txt 
+   50  kubectl
+   51  kubectl get pods
+   52  vim k8s.txt 
+   53  kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+   54  kubectl get pods -A -w
+   55  kubectl get pods -A 
+   56  cat k8s.txt 
+   57* ifconfig 
+   58  cat k8s.txt 
+   59  kubectl get nodes
+   60  kubectl get nodes -w
+   61  kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+   62  kubectl get pods
+   63  kubectl get pods -w
+   64  kubectl describe pod
+   65  kubectl describe pod | grep node
+   66  kubectl describe pod | grep nodeName
+   67  kubectl describe pod | grep k8s-worker-1
+   68  kubectl get pods
+   69  kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+   70  kubectl get svc
+   71  history > master_history.log
