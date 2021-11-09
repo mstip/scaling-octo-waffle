@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@playwright/test": "^1.16.3"
+  },
+  "scripts": {
+    "test-headless" : "npx playwright test src --config=playwright.config.ts",
+    "test-headed" : "npx playwright test src --headed"
+  }
+}
