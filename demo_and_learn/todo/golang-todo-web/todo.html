@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>golang todo web</title>
+  </head>
+  <body>
+    <h1>Todo</h1>
+    <hr />
+    <form action="/" method="POST">
+      <label for="text">New Todo</label>
+      <input type="text" name="text" id="text" />
+      <button type="submit">Create new todo</button>
+    </form>
+    <hr />
+    <ul>
+      {{range $index, $el := .Todos}}
+      <li>
+        <form action="/update/{{$index}}" method="POST">
+          <input type="checkbox" name="done" id="done" {{if $el.Done}}checked{{end}}/>
+          <input type="text" name="text" id="text" value="{{$el.Text}}" />
+          <button type="submit">Save</button>
+        </form>
+        {{if $el.Done}}
+        <form action="/delete/{{$index}}" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        {{end}}
+      </li>
+      {{end}}
+    </ul>
+  </body>
+</html>
